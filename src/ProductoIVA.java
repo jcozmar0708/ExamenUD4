@@ -1,4 +1,4 @@
-public class ProductoIVA extends Producto {
+public abstract class ProductoIVA extends Producto {
     private double iva;
 
     public ProductoIVA(String descripcion, double precioBruto, double iva) {
@@ -22,5 +22,20 @@ public class ProductoIVA extends Producto {
     @Override
     public String toString() {
         return super.toString() + String.format(" + %.1f%%",this.iva);
+    }
+
+    @Override
+    public boolean hayUnidades(int cantidad) {
+        return true;
+    }
+
+    @Override
+    public void cogerUnidad() {
+        System.out.println("Se ha cogido una unidad");
+    }
+
+    @Override
+    public double getPrecioVenta() {
+        return getPrecioNeto();
     }
 }

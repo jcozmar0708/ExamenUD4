@@ -1,14 +1,18 @@
-public class MainProducto {
-    public static void main(String[] args) {
-        Producto p = new ProductoIVA("Teclado",8.99,18);
-        System.out.println(p);
-        Producto p1 = new ProductoGeneral("Teclado",8.99);
-        System.out.println(p1);
-        Producto p2 = new ProductoReducido("Teclado",8.99);
-        System.out.println(p2);
+import exceptions.PresupuestoInsuficienteException;
 
-        System.out.println(p.getPrecioNeto());
-        System.out.println(p1.getPrecioNeto());
-        System.out.println(p2.getPrecioNeto());
+public class MainProducto {
+    public static void main(String[] args) throws PresupuestoInsuficienteException {
+        Producto p = new ProductoGeneral("PC Portátil",1000);
+        Suscripcion s = new Suscripcion("Netflix",4,12.99);
+        Suscripcion s1 = new Suscripcion("Netflix",4,12.99);
+        Suscripcion s2 = new Suscripcion("Netflix",4,12.99);
+        Producto p1 = new ProductoReducido("1 kg. patatas",1.2);
+        CestaCompra c = new CestaCompra(1300);
+        c.addElemento(p);
+        c.addElemento(s);
+        c.addElemento(s1);
+        c.addElemento(s2);
+        c.addElemento(p1);
+        c.imprimir();
     }
 }

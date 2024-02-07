@@ -1,4 +1,4 @@
-public abstract class Producto {
+public abstract class Producto implements Comprable {
     private String descripcion;
     private double precioBruto;
 
@@ -27,4 +27,6 @@ public abstract class Producto {
     public String toString() {
         return this.descripcion + String.format(": %.2f €",this.precioBruto);
     }
+
+
 }
